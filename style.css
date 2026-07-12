@@ -131,24 +131,24 @@ button {
     align-items:center;
 
 
-    background:
+ background:
+
+ linear-gradient(
+
+ rgba(0,0,30,.7),
+
+ rgba(0,0,0,.9)
+
+ ),
+
+ url("assets/yildizligece.jpg")
+
+ center center / cover no-repeat;
 
 
-    linear-gradient(
+ z-index:9999;
 
-    rgba(0,0,30,.7),
-
-    rgba(0,0,0,.9)
-
-    ),
-
-    url("assets/yildizligece.png")
-
-    center/cover;
-
-
-    z-index:9999;
-
+ will-change: transform;
 
 }
 
@@ -380,7 +380,7 @@ button {
         rgba(0,0,20,.85)
     ),
 
-    url("assets/yildizligece.png")
+    url("assets/yildizligece.jpg")
 
     center/cover fixed;
 
@@ -422,7 +422,7 @@ opacity:.45;
 
 animation:
 
-starsMove 25s linear infinite;
+starsMove 40s linear infinite;
 
 
 z-index:2;
@@ -483,7 +483,7 @@ z-index:2;
 
     animation:
 
-    heartbeat 1.5s infinite;
+    heartbeat 7s infinite;
 
 
 }
@@ -2464,7 +2464,7 @@ margin-top:20px;
 
 animation:
 
-fadeUp 3s ease;
+fadeUp 6s ease;
 
 
 }
