@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birlikte Güzel Bir Gelecek 💙</title>
+
+<meta name="description" content="Yakup ❤️ Elif aşk hikayesi">
+
+<link rel="stylesheet" href="style.css">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+</head>
+
+
+
+<body>
+
+
+<!-- ==========================
+     PASSWORD SCREEN
+========================== -->
+
+
+<div id="lockScreen">
+
+
+<div class="lock-box">
+
+
+<div class="heart-logo">
+💙
+</div>
+
+
+<h1>
+Birlikte Güzel Bir Gelecek
+</h1>
+
+
+<p>
+Yakup ❤️ Elif'in küçük dünyası...
+</p>
+
+
+<input 
+type="password"
+id="passwordInput"
+maxlength="4"
+placeholder="Şifre">
+
+
+
+<button id="unlockBtn">
+Aç 💙
+</button>
+
+
+
+<p id="passwordMessage"></p>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ==========================
+     MAIN CONTENT
+========================== -->
+
+
+<div id="mainContent" class="hidden">
+
+
+<div id="heartsContainer"></div>
+
+
+
+
+
+
+
+<!-- HERO -->
+
+
+<section class="hero">
+
+
+<div class="stars"></div>
+
+
+
+<div class="hero-content">
+
+
+<h1>
+
+Yakup
+
+<span>
+❤️
+</span>
+
+Elif
+
+</h1>
+
+
+
+<h2>
+Birlikte Güzel Bir Gelecek
+</h2>
+
+
+
+<p class="subtitle">
+
+Bir ömürlük hikayemizin başlangıcı...
+
+</p>
+
+
+
+<p class="van-text">
+
+"Yıldızların altında başlayan hikayemiz..."
+
+</p>
+
+
+
+<button onclick="scrollToSection('story')">
+
+Hikayemize Gir 💙
+
+</button>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- COUNTER -->
+
+
+<section class="counter-section">
+
+
+<h2>
+Birlikte Geçen Zamanımız
+</h2>
+
+
+
+<div id="loveCounter">
+
+
+<div>
+<span id="days">0</span>
+<p>Gün</p>
+</div>
+
+
+
+<div>
+<span id="hours">0</span>
+<p>Saat</p>
+</div>
+
+
+
+<div>
+<span id="minutes">0</span>
+<p>Dakika</p>
+</div>
+
+
+
+<div>
+<span id="seconds">0</span>
+<p>Saniye</p>
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- LOVE LETTER -->
+
+
+<section id="story" class="letter-section">
+
+
+<h2>
+Sana Mektubum 💌
+</h2>
+
+
+
+<div class="letter-box">
+
+
+<p id="typingText"></p>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- MUSIC -->
+
+
+<section class="music-section">
+
+
+<h2>
+Bizim Şarkımız 🎵
+</h2>
+
+
+
+<div class="music-card">
+
+
+<h3>
+Kıraç - Endamın Yeter
+</h3>
+
+
+
+<audio controls>
+
+<source src="assets/endaminyeter.mp3">
+
+</audio>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- GALLERY -->
+
+
+<section class="gallery-section">
+
+
+<h2>
+Anılarımız 📸
+</h2>
+
+
+
+<div id="galleryGrid"></div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- LIGHTBOX -->
+
+
+<div id="lightbox">
+
+
+<span id="closeLightbox">
+×
+</span>
+
+
+<img id="lightboxImage">
+
+
+
+<button id="prevImage">
+❮
+</button>
+
+
+
+<button id="nextImage">
+❯
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- VIDEOS -->
+
+
+<section class="video-section">
+
+
+<h2>
+Özel Anlarımız 🎥
+</h2>
+
+
+
+
+<div class="video-grid">
+
+
+
+<div class="video-card">
+
+
+<h3>
+Pambik Anımız 💙
+</h3>
+
+
+
+<video controls>
+
+
+<source src="assets/pambik.mp4">
+
+
+</video>
+
+
+</div>
+
+
+
+
+
+<div class="video-card">
+
+
+<h3>
+Doğum Günü 🎂
+</h3>
+
+
+
+<video controls>
+
+
+<source src="assets/dogumgunu.mp4">
+
+
+</video>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- TIMELINE -->
+
+
+<section class="timeline-section">
+
+
+<h2>
+Bizim Hikayemiz
+</h2>
+
+
+
+<div class="timeline">
+
+
+<div class="timeline-item">
+
+
+<h3>
+12 Aralık 2025
+</h3>
+
+
+<p>
+Her şeyin başladığı gün...
+</p>
+
+
+</div>
+
+
+
+
+<div class="timeline-item">
+
+
+<h3>
+İlk Buluşma
+</h3>
+
+
+<p>
+İlk heyecan, ilk gülüş...
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="timeline-item">
+
+
+<h3>
+Sonsuza Kadar
+</h3>
+
+
+<p>
+Birlikte yazacağımız hikaye...
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- DREAMS -->
+
+
+<section class="dream-section">
+
+
+<h2>
+Gelecek Hayallerimiz ✨
+</h2>
+
+
+
+
+<div class="dream-grid">
+
+
+
+<div class="dream-card">
+
+<img src="assets/gelinlik.jpg">
+
+
+<h3>
+👰 Gelinlik
+</h3>
+
+
+</div>
+
+
+
+
+
+<div class="dream-card">
+
+<img src="assets/damatlik.jpg">
+
+
+<h3>
+🤵 Damatlık
+</h3>
+
+
+</div>
+
+
+
+
+
+<div class="dream-card">
+
+<img src="assets/ilkbulusma.jpg">
+
+
+<h3>
+İlk Buluşmamız
+</h3>
+
+
+</div>
+
+
+
+
+
+
+<div class="dream-card">
+
+<h3>
+👶 Alya
+</h3>
+
+<p>
+Gelecekteki en güzel hayalimiz...
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="dream-card">
+
+
+<h3>
+👶 Atlas
+</h3>
+
+
+<p>
+Birlikte büyüteceğimiz umut...
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="dream-card">
+
+
+<h3>
+🏠 Evimiz
+</h3>
+
+
+<p>
+Kendi küçük dünyamız...
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="dream-card japan-card">
+
+
+<img src="assets/ichirakuramen.png">
+
+
+<h3>
+🍜 Japonya Ramen
+</h3>
+
+
+<p>
+Bir gün Japonya sokaklarında
+beraber ramen yiyeceğiz.
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="dream-card holland-card">
+
+
+<img src="assets/lalefest.jpg">
+
+
+<h3>
+🌷 Hollanda Lale Festivali
+</h3>
+
+
+<p>
+Binlerce lalenin arasında
+unutulmaz bir gün yaşayacağız.
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="dream-card van-gogh-card">
+
+
+<h3>
+🎨 Yıldızlı Gece
+</h3>
+
+
+<p>
+Van Gogh'un yıldızları altında bizim hikayemiz...
+</p>
+
+
+<img src="assets/yildizligece.png">
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- FINAL -->
+
+
+<section class="final-section">
+
+
+<h1>
+Yakup ❤️ Elif
+</h1>
+
+
+
+<p>
+Seni her gün daha çok seveceğim.
+</p>
+
+
+
+<div class="big-heart">
+
+💙
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<footer>
+
+<p>
+Made with Love 💙
+</p>
+
+
+<p>
+Yakup ❤️ Elif
+</p>
+
+
+</footer>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+
+</html>
