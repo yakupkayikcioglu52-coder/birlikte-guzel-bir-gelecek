@@ -1,431 +1,370 @@
 /* =====================================
    PROJECT BLUE HEART
-   STYLE.CSS
+   SCRIPT.JS
    BÖLÜM 1 / 3
 ===================================== */
 
 
-/* RESET */
 
-* {
+// =====================================
+// PASSWORD SYSTEM
+// =====================================
 
-    margin:0;
 
-    padding:0;
+const correctPassword = "1212";
 
-    box-sizing:border-box;
 
-}
+const lockScreen =
+document.getElementById("lockScreen");
 
 
+const mainContent =
+document.getElementById("mainContent");
 
-html {
 
-    scroll-behavior:smooth;
+const passwordInput =
+document.getElementById("passwordInput");
 
-}
 
+const unlockBtn =
+document.getElementById("unlockBtn");
 
 
-body {
+const passwordMessage =
+document.getElementById("passwordMessage");
 
-    background:#020617;
 
-    color:white;
 
-    font-family:'Poppins',sans-serif;
 
-    overflow-x:hidden;
 
-}
+unlockBtn.addEventListener(
+"click",
+()=>{
 
 
+const password =
+passwordInput.value;
 
 
 
-:root {
+if(password === correctPassword){
 
 
-    --blue:#1e90ff;
 
-    --light-blue:#9bd7ff;
+lockScreen.style.transition =
+"1s";
 
-    --dark:#020617;
 
-    --glass:rgba(255,255,255,.08);
+lockScreen.style.opacity =
+"0";
 
 
-}
 
+setTimeout(()=>{
 
 
+lockScreen.style.display =
+"none";
 
 
-
-
-.hidden {
-
-    display:none!important;
-
-}
-
-
-
-section {
-
-    padding:90px 8%;
-
-    position:relative;
-
-}
-
-
-
-h1,
-h2,
-h3 {
-
-
-    font-family:'Caveat',cursive;
-
-
-}
-
-
-
-button {
-
-
-    cursor:pointer;
-
-    border:none;
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =====================================
-   LOCK SCREEN
-===================================== */
-
-
-#lockScreen {
-
-
-    position:fixed;
-
-    inset:0;
-
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-
- background:
-
- linear-gradient(
-
- rgba(0,0,30,.7),
-
- rgba(0,0,0,.9)
-
- ),
-
- url("assets/yildizligece.jpg")
-
- center center / cover no-repeat;
-
-
- z-index:9999;
-
- will-change: transform;
-
-}
-
-
-
-
-
-
-.lock-box {
-
-
-    width:90%;
-
-    max-width:430px;
-
-
-    padding:45px 35px;
-
-
-    text-align:center;
-
-
-    border-radius:35px;
-
-
-    background:
-
-    rgba(255,255,255,.10);
-
-
-    backdrop-filter:blur(20px);
-
-
-    box-shadow:
-
-    0 0 50px rgba(30,144,255,.5);
-
-
-    animation:
-
-    fadeUp 1.5s ease;
-
-
-}
-
-
-
-
-.heart-logo {
-
-
-    font-size:75px;
-
-
-    animation:
-
-    heartbeat 1.5s infinite;
-
-
-}
-
-
-
-
-
-.lock-box h1 {
-
-
-    font-size:55px;
-
-
-    margin:15px 0;
-
-
-}
-
-
-
-
-
-.lock-box p {
-
-
-    margin-bottom:25px;
-
-
-    opacity:.9;
-
-
-}
-
-
-
-
-
-#passwordInput {
-
-
-    width:100%;
-
-
-    padding:15px;
-
-
-    border-radius:50px;
-
-
-    border:none;
-
-
-    text-align:center;
-
-
-    font-size:25px;
-
-
-    letter-spacing:12px;
-
-
-}
-
-
-
-
-
-#unlockBtn {
-
-
-    margin-top:20px;
-
-
-    padding:15px 50px;
-
-
-    border-radius:50px;
-
-
-    background:
-
-
-    linear-gradient(
-
-    45deg,
-
-    #006eff,
-
-    #9bd7ff
-
-    );
-
-
-    color:white;
-
-
-    font-size:18px;
-
-
-    box-shadow:
-
-
-    0 0 30px rgba(30,144,255,.7);
-
-
-    transition:.4s;
-
-
-}
-
-
-
-
-#unlockBtn:hover {
-
-
-    transform:scale(1.08);
-
-
-}
-
-
-
-
-
-
-#passwordMessage {
-
-
-    color:#ff9db0;
-
-    min-height:25px;
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =====================================
-   HERO
-===================================== */
-
-
-.hero {
-
-    min-height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    position:relative;
-
-    overflow:hidden;
-
-
-    background:
-
-    linear-gradient(
-        rgba(0,15,45,.45),
-        rgba(0,0,20,.85)
-    ),
-
-    url("assets/yildizligece.jpg")
-
-    center/cover fixed;
-
-}
-
-
-
-
-
-
-
-/* hareketli yıldız katmanı */
-
-
-.stars {
-
-
-position:absolute;
-
-inset:0;
-
-
-background-image:
-
-
-radial-gradient(
-white 1px,
-transparent 2px
+mainContent.classList.remove(
+"hidden"
 );
 
 
-background-size:
 
-35px 35px;
-
-
-opacity:.45;
+startHearts();
 
 
-animation:
-
-starsMove 40s linear infinite;
+startTyping();
 
 
-z-index:2;
+
+},1000);
+
+
+
+}
+
+else{
+
+
+passwordMessage.innerHTML =
+"Yanlış şifre 💙";
+
+
+passwordInput.value="";
+
+
+}
+
+
+
+});
+
+
+
+
+
+
+
+passwordInput.addEventListener(
+"keypress",
+(e)=>{
+
+
+if(e.key==="Enter"){
+
+
+unlockBtn.click();
+
+
+}
+
+
+});
+
+
+
+
+
+
+
+
+
+// =====================================
+// LOVE COUNTER
+// 12 ARALIK 2025
+// =====================================
+
+
+
+const startDate =
+new Date(
+"2025-12-12 00:00:00"
+);
+
+
+
+
+
+function updateCounter(){
+
+
+
+const now =
+new Date();
+
+
+
+const time =
+now - startDate;
+
+
+
+
+
+const days =
+Math.floor(
+time /
+(1000*60*60*24)
+);
+
+
+
+
+const hours =
+Math.floor(
+time /
+(1000*60*60)
+)%24;
+
+
+
+
+const minutes =
+Math.floor(
+time /
+(1000*60)
+)%60;
+
+
+
+
+const seconds =
+Math.floor(
+time /
+1000
+)%60;
+
+
+
+
+
+
+document.getElementById(
+"days"
+).innerHTML =
+days;
+
+
+
+document.getElementById(
+"hours"
+).innerHTML =
+hours;
+
+
+
+document.getElementById(
+"minutes"
+).innerHTML =
+minutes;
+
+
+
+document.getElementById(
+"seconds"
+).innerHTML =
+seconds;
+
+
+
+}
+
+
+
+
+setInterval(
+updateCounter,
+1000
+);
+
+
+
+updateCounter();
+
+
+
+
+
+
+
+
+
+// =====================================
+// LOVE LETTER TYPING
+// =====================================
+
+
+
+const loveText = `
+
+Karıcığım...
+
+Sen benim hayatımdaki
+en güzel tesadüfsün.
+
+Benim pambık şekerim,
+bebekk dediğim,
+şebek aşkım...
+
+Senin gülüşün benim en güzel
+mutluluğum oldu.
+
+Birlikte nice anılar,
+nice hayaller biriktireceğiz.
+
+Bir gün Japonya sokaklarında
+beraber ramen yiyeceğiz.
+
+Hollanda'da lalelerin arasında
+yürüyeceğiz.
+
+Belki kendi evimiz olacak.
+
+Belki Alya ve Atlas diye
+hayaller kuracağız.
+
+Ama benim en büyük hayalim...
+
+Her zaman yanında olmak.
+
+Seni çok seviyorum Elif. 💙
+
+`;
+
+
+
+
+
+let letterIndex = 0;
+
+
+
+
+
+
+function startTyping(){
+
+
+
+const textArea =
+document.getElementById(
+"typingText"
+);
+
+
+
+if(!textArea)
+return;
+
+
+
+
+textArea.innerHTML="";
+
+
+letterIndex=0;
+
+
+
+
+function write(){
+
+
+
+if(letterIndex <
+loveText.length){
+
+
+
+textArea.innerHTML +=
+loveText.charAt(letterIndex);
+
+
+
+letterIndex++;
+
+
+
+setTimeout(
+write,
+45
+);
+
+
+
+}
+
+
+
+}
+
+
+
+write();
+
 
 
 }
@@ -434,18 +373,86 @@ z-index:2;
 
 
 
-.hero-content {
 
 
-    position:relative;
 
 
-    z-index:2;
+// =====================================
+// FLOATING BLUE HEARTS
+// =====================================
 
 
-    animation:
 
-    fadeUp 2s ease;
+function createHeart(){
+
+
+
+const container =
+document.getElementById(
+"heartsContainer"
+);
+
+
+
+if(!container)
+return;
+
+
+
+
+const heart =
+document.createElement(
+"div"
+);
+
+
+
+heart.className =
+"heart";
+
+
+
+heart.innerHTML =
+"💙";
+
+
+
+heart.style.left =
+Math.random()*100+"vw";
+
+
+
+heart.style.animationDuration =
+(5+
+Math.random()*5)
++"s";
+
+
+
+heart.style.fontSize =
+(15+
+Math.random()*35)
++"px";
+
+
+
+container.appendChild(
+heart
+);
+
+
+
+
+
+setTimeout(()=>{
+
+
+heart.remove();
+
+
+},
+10000);
+
 
 
 }
@@ -456,141 +463,21 @@ z-index:2;
 
 
 
-.hero h1 {
 
+function startHearts(){
 
-    font-size:
 
-    clamp(70px,12vw,130px);
 
+setInterval(()=>{
 
-    text-shadow:
 
+createHeart();
 
-    0 0 40px rgba(155,215,255,.9);
 
 
-}
+},
+500);
 
-
-
-
-.hero h1 span {
-
-
-    display:inline-block;
-
-
-    animation:
-
-    heartbeat 7s infinite;
-
-
-}
-
-
-
-
-
-.hero h2 {
-
-
-    font-size:
-
-    clamp(45px,7vw,80px);
-
-
-    color:
-
-    var(--light-blue);
-
-
-}
-
-
-
-
-
-.subtitle {
-
-
-    margin-top:25px;
-
-
-    font-size:22px;
-
-
-}
-
-
-
-
-
-
-.van-text {
-
-
-    margin-top:20px;
-
-
-    font-family:'Caveat',cursive;
-
-
-    font-size:38px;
-
-
-    color:#c8e8ff;
-
-
-    text-shadow:
-
-
-    0 0 20px #4da6ff;
-
-
-}
-
-
-
-
-
-
-.hero button {
-
-
-    margin-top:35px;
-
-
-    padding:16px 45px;
-
-
-    border-radius:50px;
-
-
-    font-size:18px;
-
-
-    color:white;
-
-
-    background:
-
-
-    linear-gradient(
-
-    45deg,
-
-    #006eff,
-
-    #9bd7ff
-
-    );
-
-
-    box-shadow:
-
-
-    0 0 30px rgba(30,144,255,.8);
 
 
 }
@@ -603,1894 +490,681 @@ z-index:2;
 
 
 
-/* =====================================
-   ANIMATIONS
-===================================== */
+// =====================================
+// SCROLL
+// =====================================
 
 
-@keyframes fadeUp {
 
+function scrollToSection(id){
 
-from {
 
 
-opacity:0;
+const element =
+document.getElementById(id);
 
 
-transform:translateY(50px);
 
+if(element){
 
-}
 
 
+element.scrollIntoView({
 
-to {
+behavior:"smooth"
 
-
-opacity:1;
-
-
-transform:translateY(0);
-
-
-}
-
-
-}
-
-
-
-
-
-
-@keyframes heartbeat {
-
-
-0% {
-
-
-transform:scale(1);
-
-
-}
-
-
-25% {
-
-
-transform:scale(1.15);
-
-
-}
-
-
-40% {
-
-
-transform:scale(1);
-
-
-}
-
-
-60% {
-
-
-transform:scale(1.15);
-
-
-}
-
-
-100% {
-
-
-transform:scale(1);
-
-
-}
-
-
-}
-
-
-
-
-
-
-@keyframes starsMove {
-
-
-from {
-
-
-background-position:0 0;
-
-
-}
-
-
-to {
-
-
-background-position:500px 500px;
+});
 
 
 }
 
 
 }/* =====================================
-   COUNTER
-===================================== */
-
-
-.counter-section {
-
-
-    text-align:center;
-
-
-    background:
-
-    linear-gradient(
-    180deg,
-    #020617,
-    #071b3d
-    );
-
-
-}
-
-
-
-.counter-section h2 {
-
-
-    font-size:65px;
-
-
-    margin-bottom:50px;
-
-
-}
-
-
-
-
-
-#loveCounter {
-
-
-    display:flex;
-
-
-    justify-content:center;
-
-
-    flex-wrap:wrap;
-
-
-    gap:25px;
-
-
-}
-
-
-
-
-
-
-#loveCounter div {
-
-
-    width:160px;
-
-
-    height:160px;
-
-
-    display:flex;
-
-
-    flex-direction:column;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-
-    background:
-
-
-    rgba(255,255,255,.08);
-
-
-
-    backdrop-filter:
-
-    blur(20px);
-
-
-
-    border-radius:35px;
-
-
-
-    border:
-
-    1px solid rgba(255,255,255,.15);
-
-
-
-    box-shadow:
-
-
-    0 0 30px rgba(30,144,255,.3);
-
-
-
-    transition:.4s;
-
-
-}
-
-
-
-
-
-#loveCounter div:hover {
-
-
-    transform:
-
-    translateY(-10px);
-
-
-}
-
-
-
-#loveCounter span {
-
-
-    font-size:55px;
-
-
-    color:
-
-    var(--light-blue);
-
-
-    font-weight:bold;
-
-
-}
-
-
-
-
-#loveCounter p {
-
-
-    font-size:18px;
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =====================================
-   LOVE LETTER
-===================================== */
-
-
-.letter-section {
-
-
-    text-align:center;
-
-
-    background:
-
-
-    radial-gradient(
-
-    circle,
-
-    #123b73,
-
-    #020617
-
-    );
-
-
-}
-
-
-
-
-.letter-section h2 {
-
-
-    font-size:65px;
-
-
-    margin-bottom:40px;
-
-
-}
-
-
-
-
-
-.letter-box {
-
-
-    max-width:950px;
-
-
-    min-height:280px;
-
-
-    margin:auto;
-
-
-    padding:45px;
-
-
-
-    border-radius:35px;
-
-
-
-    background:
-
-
-    rgba(255,255,255,.08);
-
-
-
-    backdrop-filter:
-
-    blur(20px);
-
-
-
-    box-shadow:
-
-
-    0 0 40px rgba(30,144,255,.4);
-
-
-
-}
-
-
-
-
-#typingText {
-
-
-    font-family:
-
-    'Caveat',cursive;
-
-
-
-    font-size:35px;
-
-
-
-    line-height:1.7;
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =====================================
-   MUSIC
-===================================== */
-
-
-.music-section {
-
-
-    text-align:center;
-
-
-}
-
-
-
-
-
-.music-section h2 {
-
-
-    font-size:65px;
-
-
-}
-
-
-
-
-.music-card {
-
-
-    max-width:650px;
-
-
-    margin:40px auto;
-
-
-    padding:40px;
-
-
-
-    border-radius:35px;
-
-
-
-    background:
-
-
-    rgba(255,255,255,.08);
-
-
-
-    backdrop-filter:
-
-    blur(15px);
-
-
-
-    box-shadow:
-
-
-    0 0 40px rgba(30,144,255,.4);
-
-
-
-}
-
-
-
-
-.music-card h3 {
-
-
-    font-size:45px;
-
-
-    margin-bottom:30px;
-
-
-}
-
-
-
-audio {
-
-
-    width:100%;
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =====================================
-   GALLERY
+   GALLERY SYSTEM
+   BÖLÜM 2 / 3
 ===================================== */
 
 
 
-.gallery-section {
-
-
-    background:
-
-
-    linear-gradient(
-
-    180deg,
-
-    #020617,
-
-    #071b3d
-
-    );
-
-
-}
-
-
-
-
-
-.gallery-section h2 {
-
-
-    text-align:center;
-
-
-    font-size:65px;
-
-
-    margin-bottom:50px;
-
-
-}
-
-
-
-
-
-
-
-#galleryGrid {
-
-
-    display:grid;
-
-
-    grid-template-columns:
-
-    repeat(auto-fit,minmax(220px,1fr));
-
-
-    gap:25px;
-
-
-}
-
-
-
-
-
-
-.gallery-item {
-
-
-    aspect-ratio:1/1;
-
-
-    overflow:hidden;
-
-
-    border-radius:30px;
-
-
-    cursor:pointer;
-
-
-    box-shadow:
-
-
-    0 0 25px rgba(30,144,255,.35);
-
-
-}
-
-
-
-
-
-.gallery-item img {
-
-
-    width:100%;
-
-
-    height:100%;
-
-
-    object-fit:cover;
-
-
-    transition:.6s;
-
-
-}
-
-
-
-
-.gallery-item:hover img {
-
-
-    transform:
-
-    scale(1.15);
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =====================================
-   LIGHTBOX
-===================================== */
-
-
-
-#lightbox {
-
-
-    position:fixed;
-
-
-    inset:0;
-
-
-    display:none;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-    background:
-
-    rgba(0,0,0,.92);
-
-
-    z-index:5000;
-
-
-}
-
-
-
-#lightbox.active {
-
-
-    display:flex;
-
-
-}
-
-
-
-
-
-#lightboxImage {
-
-
-    max-width:90%;
-
-
-    max-height:85%;
-
-
-    border-radius:30px;
-
-
-    box-shadow:
-
-
-    0 0 50px rgba(30,144,255,.8);
-
-
-}
-
-
-
-#closeLightbox {
-
-
-    position:absolute;
-
-
-    top:30px;
-
-
-    right:40px;
-
-
-    font-size:55px;
-
-
-    cursor:pointer;
-
-
-}
-
-
-
-
-
-#prevImage,
-#nextImage {
-
-
-    position:absolute;
-
-
-    top:50%;
-
-
-    transform:
-
-    translateY(-50%);
-
-
-    width:60px;
-
-
-    height:60px;
-
-
-    border-radius:50%;
-
-
-    background:
-
-    rgba(255,255,255,.2);
-
-
-
-    color:white;
-
-
-    font-size:30px;
-
-
-}
-
-
-
-
-
-#prevImage {
-
-
-    left:30px;
-
-
-}
-
-
-
-#nextImage {
-
-
-    right:30px;
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =====================================
-   VIDEOS
-===================================== */
-
-
-
-.video-section {
-
-
-    text-align:center;
-
-
-}
-
-
-
-
-
-.video-section h2 {
-
-
-    font-size:65px;
-
-
-    margin-bottom:50px;
-
-
-}
-
-
-
-
-.video-grid {
-
-
-    display:grid;
-
-
-    grid-template-columns:
-
-    repeat(auto-fit,minmax(320px,1fr));
-
-
-    gap:35px;
-
-
-}
-
-
-
-
-.video-card {
-
-
-    padding:30px;
-
-
-    border-radius:35px;
-
-
-
-    background:
-
-
-    rgba(255,255,255,.08);
-
-
-
-    backdrop-filter:
-
-    blur(20px);
-
-
-}
-
-
-
-
-
-.video-card h3 {
-
-
-    font-size:45px;
-
-
-    margin-bottom:25px;
-
-
-}
-
-
-
-
-.video-card video {
-
-
-    width:100%;
-
-
-    border-radius:25px;
-
-
-}/* =====================================
-   TIMELINE
-===================================== */
-
-
-.timeline-section {
-
-
-    background:
-
-
-    linear-gradient(
-
-    180deg,
-
-    #071b3d,
-
-    #020617
-
-    );
-
-
-    text-align:center;
-
-
-}
-
-
-
-
-.timeline-section h2 {
-
-
-    font-size:65px;
-
-
-    margin-bottom:50px;
-
-
-}
-
-
-
-
-
-.timeline {
-
-
-    max-width:900px;
-
-
-    margin:auto;
-
-
-    position:relative;
-
-
-}
-
-
-
-
-
-.timeline::before {
-
-
-    content:"";
-
-
-    position:absolute;
-
-
-    left:50%;
-
-
-    top:0;
-
-
-    height:100%;
-
-
-    width:3px;
-
-
-    background:
-
-
-    var(--blue);
-
-
-}
-
-
-
-
-
-
-
-.timeline-item {
-
-
-    width:50%;
-
-
-    padding:30px;
-
-
-    margin-bottom:50px;
-
-
-    background:
-
-
-    rgba(255,255,255,.08);
-
-
-
-    backdrop-filter:
-
-    blur(15px);
-
-
-
-    border-radius:30px;
-
-
-
-    box-shadow:
-
-
-    0 0 30px rgba(30,144,255,.25);
-
-
-
-    position:relative;
-
-
-}
-
-
-
-
-
-.timeline-item:nth-child(odd) {
-
-
-    text-align:right;
-
-
-}
-
-
-
-
-.timeline-item:nth-child(even) {
-
-
-    margin-left:50%;
-
-
-    text-align:left;
-
-
-}
-
-
-
-
-
-.timeline-item h3 {
-
-
-    font-size:42px;
-
-
-    color:
-
-    var(--light-blue);
-
-
-}
-
-
-
-.timeline-item p {
-
-
-    font-size:18px;
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =====================================
-   DREAM SECTION
-===================================== */
-
-
-
-.dream-section {
-
-
-    text-align:center;
-
-
-    background:
-
-
-    radial-gradient(
-
-    circle at top,
-
-    #123b73,
-
-    #020617
-
-    );
-
-
-}
-
-
-
-
-.dream-section h2 {
-
-
-    font-size:65px;
-
-
-    margin-bottom:50px;
-
-
-}
-
-
-
-
-
-.dream-grid {
-
-
-    display:grid;
-
-
-    grid-template-columns:
-
-
-    repeat(auto-fit,minmax(260px,1fr));
-
-
-    gap:30px;
-
-
-}
-
-
-
-
-
-.dream-card {
-
-
-    min-height:260px;
-
-
-    padding:30px;
-
-
-    border-radius:35px;
-
-
-    background:
-
-
-    rgba(255,255,255,.08);
-
-
-
-    backdrop-filter:
-
-    blur(20px);
-
-
-
-    border:
-
-    1px solid rgba(255,255,255,.15);
-
-
-
-    transition:.5s;
-
-
-}
-
-
-
-
-.dream-card:hover {
-
-
-    transform:
-
-
-    translateY(-15px);
-
-
-    box-shadow:
-
-
-    0 0 50px rgba(30,144,255,.5);
-
-
-}
-
-
-
-
-
-.dream-card img {
-
-
-    width:100%;
-
-
-    height:180px;
-
-
-    object-fit:cover;
-
-
-    border-radius:25px;
-
-
-    margin-bottom:20px;
-
-
-}
-
-
-
-
-
-.dream-card h3 {
-
-
-    font-size:42px;
-
-
-    color:
-
-    var(--light-blue);
-
-
-}
-
-
-
-
-.dream-card p {
-
-
-    line-height:1.6;
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =====================================
-   VAN GOGH SPECIAL CARD
-===================================== */
-
-
-.van-gogh-card {
-
-
-    background:
-
-
-    linear-gradient(
-
-    135deg,
-
-    rgba(20,40,120,.8),
-
-    rgba(0,10,40,.9)
-
-    );
-
-
-}
-
-
-
-
-
-.van-gogh-card:hover {
-
-
-    box-shadow:
-
-
-    0 0 70px rgba(116,192,255,.9);
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =====================================
-   FLOATING HEARTS
-===================================== */
-
-
-
-.heart {
-
-
-    position:fixed;
-
-
-    bottom:-50px;
-
-
-    font-size:30px;
-
-
-    color:#4da6ff;
-
-
-    animation:
-
-
-    floatHeart linear forwards;
-
-
-    pointer-events:none;
-
-
-    z-index:1000;
-
-
-}
-
-
-
-
-
-
-@keyframes floatHeart {
-
-
-
-from {
-
-
-transform:
-
-
-translateY(0)
-
-rotate(0deg);
-
-
-
-opacity:1;
-
-
-}
-
-
-
-to {
-
-
-transform:
-
-
-translateY(-120vh)
-
-rotate(360deg);
-
-
-
-opacity:0;
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =====================================
-   FINAL SECTION
-===================================== */
-
-
-
-.final-section {
-
-
-    min-height:90vh;
-
-
-    display:flex;
-
-
-    flex-direction:column;
-
-
-    justify-content:center;
-
-
-    align-items:center;
-
-
-    text-align:center;
-
-
-    background:
-
-
-    radial-gradient(
-
-    circle,
-
-    #164f91,
-
-    #020617
-
-    );
-
-
-}
-
-
-
-
-.final-section h1 {
-
-
-    font-size:
-
-
-    clamp(70px,12vw,140px);
-
-
-    text-shadow:
-
-
-    0 0 50px rgba(155,215,255,.8);
-
-
-}
-
-
-
-
-
-.final-section p {
-
-
-    font-size:35px;
-
-
-    font-family:
-
-
-    'Caveat',cursive;
-
-
-}
-
-
-
-.big-heart {
-
-
-    font-size:130px;
-
-
-    animation:
-
-
-    heartbeat 1.5s infinite;
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =====================================
-   FOOTER
-===================================== */
-
-
-
-footer {
-
-
-    padding:40px;
-
-
-    text-align:center;
-
-
-    background:#01030a;
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =====================================
-   MOBILE
-===================================== */
-
-
-
-@media(max-width:768px){
-
-
-
-section {
-
-
-padding:60px 5%;
-
-
-}
-
-
-
-.hero h1 {
-
-
-font-size:60px;
-
-
-}
-
-
-
-.hero h2 {
-
-
-font-size:40px;
-
-
-}
-
-
-
-
-.van-text {
-
-
-font-size:30px;
-
-
-}
-
-
-
-
-#loveCounter div {
-
-
-width:125px;
-
-
-height:125px;
-
-
-}
-
-
-
-
-#loveCounter span {
-
-
-font-size:35px;
-
-
-}
-
-
-
-
-
-.timeline::before {
-
-
-left:20px;
-
-
-}
-
-
-
-
-
-.timeline-item,
-.timeline-item:nth-child(odd),
-.timeline-item:nth-child(even){
-
-
-width:100%;
-
-
-margin-left:0;
-
-
-text-align:left;
-
-
-padding-left:60px;
-
-
-}
-
-
-
-
-.gallery-section h2,
-.video-section h2,
-.timeline-section h2,
-.dream-section h2{
-
-
-font-size:45px;
-
-
-}
-
-
-
-#prevImage {
-
-
-left:10px;
-
-
-}
-
-
-
-#nextImage {
-
-
-right:10px;
-
-
-}
-
-
-
-}.hero::before {
-
-
-content:"";
-
-
-position:absolute;
-
-inset:0;
-
-
-background:
-
-radial-gradient(
-circle at center,
-transparent 20%,
-rgba(0,0,30,.7) 100%
+const galleryGrid =
+document.getElementById(
+"galleryGrid"
 );
 
 
-z-index:1;
+
+
+
+const photos = [];
+
+
+
+
+
+// 34 FOTOĞRAF
+
+for(let i = 1; i <= 34; i++){
+
+
+    photos.push(
+        `assets/foto${i}.jpg`
+    );
 
 
 }
 
 
 
-.hero-content {
 
 
-z-index:3;
 
 
-}/* Japonya */
+function createGallery(){
 
-.japan-card {
 
-background:
 
-linear-gradient(
-135deg,
-rgba(200,30,50,.35),
-rgba(0,0,0,.85)
+if(!galleryGrid)
+return;
+
+
+
+galleryGrid.innerHTML="";
+
+
+
+photos.forEach(
+(photo,index)=>{
+
+
+
+const item =
+document.createElement(
+"div"
 );
 
-}
 
 
-.japan-card:hover {
-
-box-shadow:
-
-0 0 60px rgba(255,80,80,.8);
-
-}
+item.className =
+"gallery-item";
 
 
 
-/* Hollanda */
+item.innerHTML = `
 
-.holland-card {
+<img 
+src="${photo}"
+alt="Yakup Elif Anı ${index+1}"
+loading="lazy">
 
-background:
+`;
 
-linear-gradient(
-135deg,
-rgba(255,120,180,.35),
-rgba(0,30,60,.85)
+
+
+
+
+const image =
+item.querySelector(
+"img"
 );
 
+
+
+
+
+// Fotoğraf yoksa gizle
+
+image.onerror =
+()=>{
+
+
+item.style.display =
+"none";
+
+
+};
+
+
+
+
+
+item.onclick =
+()=>{
+
+
+openLightbox(index);
+
+
+};
+
+
+
+
+
+galleryGrid.appendChild(
+item
+);
+
+
+
+});
+
+
+
 }
 
 
-.holland-card:hover {
 
-box-shadow:
 
-0 0 60px rgba(255,170,220,.8);
 
-}/* =====================================
-   CINEMATIC OPENING
+createGallery();
+
+
+
+
+
+
+
+
+
+// =====================================
+// LIGHTBOX
+// =====================================
+
+
+
+const lightbox =
+document.getElementById(
+"lightbox"
+);
+
+
+
+const lightboxImage =
+document.getElementById(
+"lightboxImage"
+);
+
+
+
+const closeLightbox =
+document.getElementById(
+"closeLightbox"
+);
+
+
+
+const prevImage =
+document.getElementById(
+"prevImage"
+);
+
+
+
+const nextImage =
+document.getElementById(
+"nextImage"
+);
+
+
+
+
+
+let currentImage = 0;
+
+
+
+
+
+
+
+
+function openLightbox(index){
+
+
+
+currentImage =
+index;
+
+
+
+lightboxImage.src =
+photos[currentImage];
+
+
+
+lightbox.classList.add(
+"active"
+);
+
+
+
+}
+
+
+
+
+
+
+
+function closeBox(){
+
+
+
+lightbox.classList.remove(
+"active"
+);
+
+
+
+}
+
+
+
+
+
+
+
+
+function showNext(){
+
+
+
+currentImage++;
+
+
+
+if(currentImage >= photos.length){
+
+
+
+currentImage=0;
+
+
+}
+
+
+
+lightboxImage.src =
+photos[currentImage];
+
+
+
+}
+
+
+
+
+
+
+
+
+function showPrev(){
+
+
+
+currentImage--;
+
+
+
+if(currentImage < 0){
+
+
+
+currentImage =
+photos.length-1;
+
+
+}
+
+
+
+lightboxImage.src =
+photos[currentImage];
+
+
+
+}
+
+
+
+
+
+
+
+
+closeLightbox.onclick =
+closeBox;
+
+
+
+nextImage.onclick =
+showNext;
+
+
+
+prevImage.onclick =
+showPrev;
+
+
+
+
+
+
+
+
+
+// Dışarı tıklayınca kapat
+
+
+
+lightbox.onclick =
+(e)=>{
+
+
+if(e.target === lightbox){
+
+
+closeBox();
+
+
+}
+
+
+
+};
+
+
+
+
+
+
+
+
+
+// =====================================
+// KLAVYE KONTROL
+// =====================================
+
+
+
+document.addEventListener(
+"keydown",
+(e)=>{
+
+
+
+if(!lightbox.classList.contains("active"))
+return;
+
+
+
+if(e.key==="ArrowRight"){
+
+
+showNext();
+
+
+}
+
+
+
+
+if(e.key==="ArrowLeft"){
+
+
+showPrev();
+
+
+}
+
+
+
+
+if(e.key==="Escape"){
+
+
+closeBox();
+
+
+}
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+// =====================================
+// MOBİL SWIPE
+// =====================================
+
+
+
+let touchStartX = 0;
+
+
+let touchEndX = 0;
+
+
+
+
+
+lightbox.addEventListener(
+"touchstart",
+(e)=>{
+
+
+touchStartX =
+e.changedTouches[0].screenX;
+
+
+
+});
+
+
+
+
+
+
+lightbox.addEventListener(
+"touchend",
+(e)=>{
+
+
+touchEndX =
+e.changedTouches[0].screenX;
+
+
+
+swipeControl();
+
+
+
+});
+
+
+
+
+
+
+
+
+function swipeControl(){
+
+
+
+if(
+touchEndX <
+touchStartX - 50
+){
+
+
+
+showNext();
+
+
+}
+
+
+
+
+if(
+touchEndX >
+touchStartX + 50
+){
+
+
+
+showPrev();
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// =====================================
+// ÖZEL GÖRSEL PRELOAD
+// =====================================
+
+
+
+const specialImages=[
+
+
+"assets/gelinlik.jpg",
+
+
+"assets/damatlik.jpg",
+
+
+"assets/ilkbulusma.jpg",
+
+
+"assets/yildizligece.jpg",
+
+
+"assets/lalefest.jpg",
+
+
+"assets/ichirakuramen.jpg"
+
+
+];
+
+
+
+
+
+
+specialImages.forEach(
+(src)=>{
+
+
+const img =
+new Image();
+
+
+img.src=src;
+
+
+}
+
+);/* =====================================
+   PROJECT BLUE HEART
+   SCRIPT.JS
+   BÖLÜM 3 / 3
 ===================================== */
 
 
-.opening-heart {
+
+// =====================================
+// VIDEO SYSTEM
+// =====================================
 
 
-font-size:120px;
 
-
-animation:
-
-heartbeat 1.5s infinite;
-
-
-filter:
-
-drop-shadow(
-0 0 40px #4da6ff
+const videos =
+document.querySelectorAll(
+"video"
 );
 
 
-margin-bottom:30px;
+
+videos.forEach(
+(video)=>{
 
 
-animation-delay:.5s;
+video.addEventListener(
+"play",
+()=>{
 
 
-}
+videos.forEach(
+(other)=>{
 
 
-
-.hero-title {
-
-
-font-size:
-
-clamp(70px,12vw,140px);
+if(other !== video){
 
 
-animation:
-
-fadeUp 2s ease;
+other.pause();
 
 
 }
 
 
+});
 
 
-.hero-title span {
+});
 
 
-display:inline-block;
 
-
-animation:
-
-heartbeat 1.5s infinite;
-
-
-}
+});
 
 
 
 
 
-.future-title {
-
-
-font-size:
-
-clamp(45px,7vw,80px);
-
-
-color:#bde7ff;
-
-
-margin-top:20px;
-
-
-animation:
-
-fadeUp 6s ease;
-
-
-}
 
 
 
 
-
-.date-text {
-
-
-font-size:28px;
+// =====================================
+// MUSIC SETTINGS
+// =====================================
 
 
-margin-top:25px;
+
+const music =
+document.querySelector(
+"audio"
+);
 
 
-letter-spacing:2px;
+
+if(music){
 
 
-opacity:.9;
 
+music.volume = 0.35;
 
-animation:
-
-fadeUp 4s ease;
 
 
 }
@@ -2499,78 +1173,255 @@ fadeUp 4s ease;
 
 
 
-.hero .van-text {
 
 
-max-width:700px;
 
 
-margin:30px auto;
+// =====================================
+// SCROLL REVEAL
+// =====================================
 
 
-font-size:35px;
+
+const revealItems =
+document.querySelectorAll(
+"section, .dream-card, .video-card"
+);
 
 
-line-height:1.5;
 
 
-animation:
 
-fadeUp 5s ease;
-
-
-}.hero-content {
+const revealObserver =
+new IntersectionObserver(
+(entries)=>{
 
 
-animation:
 
-heroAppear 2s ease forwards;
-
-
-}
+entries.forEach(
+(entry)=>{
 
 
-@keyframes heroAppear {
+if(entry.isIntersecting){
 
 
-0%{
-
-
-opacity:0;
-
-
-transform:
-
-scale(.8);
-
-
-filter:
-
-blur(10px);
+entry.target.classList.add(
+"show"
+);
 
 
 }
 
 
 
-100%{
+});
 
 
-opacity:1;
+},
+{
+
+threshold:.15
 
 
-transform:
-
-scale(1);
+});
 
 
-filter:
 
-blur(0);
+
+
+
+
+revealItems.forEach(
+(item)=>{
+
+
+item.classList.add(
+"reveal"
+);
+
+
+
+revealObserver.observe(
+item
+);
+
+
+
+});
+
+
+
+
+
+
+
+
+
+// =====================================
+// FINAL HEART CLICK EFFECT
+// =====================================
+
+
+
+const bigHeart =
+document.querySelector(
+".big-heart"
+);
+
+
+
+
+
+if(bigHeart){
+
+
+
+bigHeart.addEventListener(
+"click",
+()=>{
+
+
+for(let i=0;i<30;i++){
+
+
+createHeart();
 
 
 }
 
 
 
+});
+
+
 }
+
+
+
+
+
+
+
+
+
+// =====================================
+// SPECIAL IMAGE ERROR CONTROL
+// =====================================
+
+
+
+document.addEventListener(
+"error",
+(e)=>{
+
+
+
+if(e.target.tagName==="IMG"){
+
+
+
+console.log(
+"Görsel bulunamadı:",
+e.target.src
+);
+
+
+
+}
+
+
+
+},
+true);
+
+
+
+
+
+
+
+
+
+// =====================================
+// PAGE READY
+// =====================================
+
+
+
+window.addEventListener(
+"load",
+()=>{
+
+
+document.body.classList.add(
+"loaded"
+);
+
+
+
+console.log(
+`
+💙 BİRLİKTE GÜZEL BİR GELECEK
+
+Yakup ❤️ Elif
+
+12 Aralık 2025
+
+Bir ömürlük hikaye...
+`
+);
+
+
+
+});
+
+
+
+
+
+
+
+
+
+// =====================================
+// RIGHT CLICK KORUMA
+// =====================================
+
+
+
+document.addEventListener(
+"contextmenu",
+(e)=>{
+
+
+e.preventDefault();
+
+
+});
+
+
+
+
+
+
+
+
+
+// =====================================
+// TOUCH FRIENDLY
+// =====================================
+
+
+
+document.addEventListener(
+"touchstart",
+()=>{
+
+
+document.body.classList.add(
+"mobile"
+);
+
+
+});
+
